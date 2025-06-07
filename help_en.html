@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help - Progress Tracker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="analysis.png">
 </head>
-<body>
+
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Progress Tracker</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.html">Progress Tracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -22,45 +27,148 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="help_en.html">Help</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help_it.html">
+                            (<img src="italy.png" alt="IT" style="width: 16px; height: 16px; vertical-align: middle;">)
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <h1>User Guide</h1>
-        <p>Welcome to the Progress Tracker!</p>
+    <div class="container my-5">
+        <h1 class="display-5">User Guide</h1>
+        <p class="lead">Welcome to the Progress Tracker! This guide explains how to use all the features of the
+            application.</p>
 
-        <h2>Adding an Event</h2>
-        <p>To record a new progress (event):</p>
-        <ol>
-            <li><strong>Date & Time:</strong> The current date and time will be automatically entered. You can modify them if necessary.</li>
-            <li><strong>Event Type:</strong> Select an event type from the list (e.g., "Push-ups", "Sit-ups"). Next to the dropdown, there's a trash icon button to delete the currently selected event type (if not in use).</li>
-            <li><strong>Or create new type:</strong> If the event type you want is not present, type it into the "Or create new type" field and click "Add Type". The new type will then be available in the list for future selections.</li>
-            <li><strong>Numeric Value:</strong> Enter the numerical value of your progress (e.g., number of push-ups, km run, weight lifted). You can use decimal numbers.</li>
-            <li><strong>Notes:</strong> Add any details or comments about the event.</li>
-            <li>Click <strong>"Add Event"</strong> to save.</li>
-        </ol>
+        <div class="alert alert-info mt-4" role="alert">
+            <h4 class="alert-heading"><i class="bi bi-shield-check"></i> Your Data, Your Privacy</h4>
+            <p>All data entered is saved **exclusively in your browser's local storage**. This means your information
+                stays on your device and is never sent to any external server. If you clear your browser data, switch
+                browsers, or use incognito/private mode, your data will be lost unless you have previously exported it.
+            </p>
+        </div>
 
-        <h2>Dashboard</h2>
-        <ul>
-            <li><strong>Latest Recorded Events:</strong> A table shows the most recent events you have recorded. You can delete an event by clicking the trash icon.</li>
-            <li><strong>Activity Trend Chart:</strong> A graph displays the trend of your progress over time. You can filter the data shown in the chart by selecting a specific event type from the dropdown menu above the chart.</li>
+        <h2 class="mt-5">Understanding the Interface</h2>
+        <p>The main page is organized into collapsible sections. Here’s what each one does:</p>
+
+        <div class="accordion" id="helpAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <strong>1. Progress Monitoring - Add New Event</strong>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>This is where you record a new activity or achievement. To add an event:</p>
+                        <ol>
+                            <li><strong>Date & Time:</strong> The current date and time are pre-filled. You can click to
+                                change them if you're logging a past event.</li>
+                            <li><strong>Numeric Value:</strong> Enter the value for your activity (e.g., `15` for
+                                push-ups, `5.2` for kilometers run). Decimals are allowed.</li>
+                            <li><strong>Event Type:</strong> Select an existing category from the dropdown menu.</li>
+                            <li><strong>Or new type:</strong> If the category doesn't exist, type a name in this field
+                                (e.g., "Pages Read") and click the <code>Add Type</code> button. It will be saved for
+                                future use.</li>
+                            <li><strong>Notes (Optional):</strong> Add any relevant details about the event.</li>
+                            <li>Click the <code>Add Event</code> button to save your record.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <strong>2. Activity Trend Chart & Max Values</strong>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>This section gives you a visual overview of your individual entries over time.</p>
+                        <ul>
+                            <li><strong>The Chart:</strong> Shows each event you've logged as a point on the graph. This
+                                is useful for seeing your performance on a specific day and identifying trends.</li>
+                            <li><strong>Max Values Panel:</strong> To the right of the chart, this panel shows the
+                                all-time highest value you have recorded for each event type. It's a quick way to see
+                                your personal bests.</li>
+                            <li><strong>Filter:</strong> Use the dropdown menu above the chart to show data for all
+                                activities or just a specific one.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <strong>3. Daily Totals Chart</strong>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>This chart is different from the first one. It calculates the **sum of all values for each
+                            day** and displays the total.</p>
+                        <p><strong>Example:</strong> If you log 20 push-ups in the morning and 15 in the evening on the
+                            same day, the "Activity Trend Chart" will show two separate points (20 and 15), while this
+                            "Daily Totals Chart" will show a single point at 35 for that day.</p>
+                        <p>It's perfect for tracking your total daily volume for a given activity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <strong>4. Dashboard - Latest Recorded Events</strong>
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>This section provides a simple table view of your most recent entries, sorted from newest to
+                            oldest.</p>
+                        <p>You can delete any event permanently by clicking the trash icon <i class="bi bi-trash"></i>
+                            in its row.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Data Management</h2>
+        <p>In the top-right corner of the navigation bar, you'll find three essential data management tools:</p>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <i class="bi bi-download me-2"></i><strong>Export Data:</strong> Click this to download a full backup of
+                all your event types and recorded events. The data is saved in a <code>.json</code> file. It's highly
+                recommended to do this periodically!
+            </li>
+            <li class="list-group-item">
+                <i class="bi bi-upload me-2"></i><strong>Import Data:</strong> This allows you to restore your data from
+                a previously exported <code>.json</code> file. This is useful for moving data to a new device or
+                browser.
+            </li>
         </ul>
-
-        <h2>Data Management</h2>
-        <p>In the top-right navigation bar, you will find buttons for:</p>
-        <ul>
-            <li><strong>Export Data:</strong> Download all your data into a JSON file. Keep this file for backup or to transfer data.</li>
-            <li><strong>Import Data:</strong> Upload a JSON file (previously exported from this application) to restore your data. <em>Warning: Importing will overwrite currently present data.</em></li>
-            <li><strong>Clear All Data:</strong> Permanently removes all event data and custom event types from your browser. Use with caution!</li>
-        </ul>
-
-        <h2>Data and Privacy</h2>
-        <p>All data entered into this application is saved <strong>exclusively in your browser's local storage</strong>. This means the data remains on your computer and is not sent to any external server. If you change browsers, use incognito mode, or clear your browser data, the application data will be lost unless you have exported it.</p>
-
+        <div class="alert alert-danger mt-3" role="alert">
+            <h4 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Warning!</h4>
+            <p><strong>Importing data will overwrite all current data in the browser.</strong> There is no "undo"
+                button. Similarly, clicking <strong>Clear All Data</strong> will permanently erase everything. Use these
+                features with caution.</p>
+        </div>
     </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Ultra Progress Tracker. All rights reserved.</span>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

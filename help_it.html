@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="it">
-
+<html lang="it" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help - Tracker Progressi</title>
+    <title>Aiuto - Progress Tracker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="analysis.png">
 </head>
-
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Progress Tracker</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.html">Progress Tracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -23,61 +21,123 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help_en.html">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="help_it.html">
+                            (<img src="italy.png" alt="IT" style="width: 16px; height: 16px; vertical-align: middle;">)
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <h1>Guida all'Uso</h1>
-        <p>Benvenuto nel Progress Tracker!</p>
+    <div class="container my-5">
+        <h1 class="display-5">Guida all'Uso</h1>
+        <p class="lead">Benvenuto nel Progress Tracker! Questa guida spiega come utilizzare tutte le funzionalità dell'applicazione.</p>
 
-        <h2>Aggiungere un Evento</h2>
-        <p>Per registrare un nuovo progresso (evento):</p>
-        <ol>
-            <li><strong>Data e Ora:</strong> Verrà automaticamente inserita la data e l'ora correnti. Puoi modificarle
-                se necessario.</li>
-            <li><strong>Tipo Evento:</strong> Seleziona un tipo di evento dalla lista (es. "Flessioni", "Addominali").
+        <div class="alert alert-info mt-4" role="alert">
+            <h4 class="alert-heading"><i class="bi bi-shield-check"></i> I Tuoi Dati, La Tua Privacy</h4>
+            <p>Tutti i dati inseriti sono salvati **esclusivamente nel local storage del tuo browser**. Ciò significa che le tue informazioni rimangono sul tuo dispositivo e non vengono mai inviate a un server esterno. Se cancelli i dati del browser, cambi browser o usi la navigazione in incognito/privata, i tuoi dati andranno persi a meno che tu non li abbia precedentemente esportati.</p>
+        </div>
+
+        <h2 class="mt-5">Comprendere l'Interfaccia</h2>
+        <p>La pagina principale è organizzata in sezioni a scomparsa. Ecco cosa fa ciascuna di esse:</p>
+
+        <div class="accordion" id="helpAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <strong>1. Monitoraggio Progressi - Aggiungi Nuovo Evento</strong>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>Questa è la sezione dove registri una nuova attività o un risultato. Per aggiungere un evento:</p>
+                        <ol>
+                            <li><strong>Data e Ora:</strong> La data e l'ora correnti sono pre-compilate. Puoi cliccarci sopra per modificarle se stai registrando un evento passato.</li>
+                            <li><strong>Valore Numerico:</strong> Inserisci il valore per la tua attività (es. `15` per le flessioni, `5.2` per i chilometri percorsi). Sono ammessi i decimali.</li>
+                            <li><strong>Tipo Evento:</strong> Seleziona una categoria esistente dal menu a tendina.</li>
+                            <li><strong>O nuovo tipo:</strong> Se la categoria non esiste, scrivi un nome in questo campo (es. "Pagine lette") e clicca sul pulsante <code>Aggiungi Tipo</code>. Verrà salvata per usi futuri.</li>
+                            <li><strong>Note (Opzionale):</strong> Aggiungi qualsiasi dettaglio rilevante sull'evento.</li>
+                            <li>Clicca sul pulsante <code>Aggiungi Evento</code> per salvare la tua registrazione.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <strong>2. Grafico Andamento Attività e Valori Massimi</strong>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>Questa sezione ti offre una panoramica visiva delle tue singole registrazioni nel tempo.</p>
+                        <ul>
+                            <li><strong>Il Grafico:</strong> Mostra ogni evento che hai registrato come un punto sul grafico. È utile per vedere la tua performance in un giorno specifico e identificare le tendenze.</li>
+                            <li><strong>Pannello Valori Massimi:</strong> A destra del grafico, questo pannello mostra il valore più alto che hai mai registrato per ogni tipo di evento. È un modo rapido per vedere i tuoi record personali.</li>
+                            <li><strong>Filtro:</strong> Usa il menu a tendina sopra il grafico per mostrare i dati di tutte le attività o solo di una specifica.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <strong>3. Grafico Totali Giornalieri</strong>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>Questo grafico è diverso dal primo. Calcola la <strong>somma di tutti i valori per ogni giorno</strong> e ne visualizza il totale.</p>
+                        <p><strong>Esempio:</strong> Se registri 20 flessioni al mattino e 15 alla sera nello stesso giorno, il "Grafico Andamento Attività" mostrerà due punti separati (20 e 15), mentre questo "Grafico Totali Giornalieri" mostrerà un unico punto a 35 per quel giorno.</p>
+                        <p>È perfetto per monitorare il tuo volume totale giornaliero per una data attività.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <strong>4. Dashboard - Ultimi Eventi Registrati</strong>
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>Questa sezione fornisce una semplice tabella con le tue registrazioni più recenti, ordinate dalla più nuova alla più vecchia.</p>
+                        <p>Puoi eliminare qualsiasi evento in modo permanente cliccando sull'icona del cestino <i class="bi bi-trash"></i> nella sua riga.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Gestione dei Dati</h2>
+        <p>Nell'angolo in alto a destra della barra di navigazione, troverai tre strumenti essenziali per la gestione dei dati:</p>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <i class="bi bi-download me-2"></i><strong>Esporta Dati:</strong> Clicca qui per scaricare un backup completo di tutti i tuoi tipi di evento e degli eventi registrati. I dati vengono salvati in un file <code>.json</code>. È fortemente consigliato farlo periodicamente!
             </li>
-            <li><strong>O crea nuovo tipo:</strong> Se il tipo di evento che desideri non è presente, digitalo nel campo
-                "O crea nuovo tipo" e clicca su "Aggiungi Tipo". Il nuovo tipo sarà disponibile nella lista per
-                selezioni future.</li>
-            <li><strong>Valore Numerico:</strong> Inserisci il valore numerico del tuo progresso (es. numero di
-                flessioni, km percorsi, peso sollevato). Puoi usare numeri decimali.</li>
-            <li><strong>Note:</strong> Aggiungi eventuali dettagli o commenti sull'evento.</li>
-            <li>Clicca su <strong>"Aggiungi Evento"</strong> per salvare.</li>
-        </ol>
-
-        <h2>Dashboard</h2>
-        <ul>
-            <li><strong>Ultimi Eventi Inseriti:</strong> Una tabella mostra gli eventi più recenti che hai registrato.
-                Puoi eliminare un evento cliccando sull'icona del cestino.</li>
-            <li><strong>Grafico Andamento Attività:</strong> Un grafico visualizza l'andamento dei tuoi progressi nel
-                tempo. Puoi filtrare i dati mostrati nel grafico selezionando un tipo di evento specifico dal menu a
-                tendina sopra il grafico.</li>
+            <li class="list-group-item">
+                <i class="bi bi-upload me-2"></i><strong>Importa Dati:</strong> Ti permette di ripristinare i tuoi dati da un file <code>.json</code> precedentemente esportato. È utile per spostare i dati su un nuovo dispositivo o browser.
+            </li>
         </ul>
-
-        <h2>Gestione Dati</h2>
-        <p>Nella barra di navigazione in alto a destra trovi i pulsanti per:</p>
-        <ul>
-            <li><strong>Esporta Dati:</strong> Scarica tutti i tuoi dati in un file JSON. Conserva questo file per avere
-                un backup o per trasferire i dati.</li>
-            <li><strong>Importa Dati:</strong> Carica un file JSON (precedentemente esportato da questa applicazione)
-                per ripristinare i tuoi dati. <em>Attenzione: l'importazione sovrascriverà i dati attualmente
-                    presenti.</em></li>
-            <li><strong>Cancella Tutti i Dati:</strong> Rimuove permanentemente tutti i dati degli eventi e i tipi di
-                evento personalizzati dal tuo browser. Usa con cautela!</li>
-        </ul>
-
-        <h2>Dati e Privacy</h2>
-        <p>Tutti i dati inseriti in questa applicazione sono salvati <strong>esclusivamente nel local storage del tuo
-                browser</strong>. Ciò significa che i dati rimangono sul tuo computer e non vengono inviati a nessun
-            server esterno. Se cambi browser, usi la navigazione in incognito, o cancelli i dati del browser, i dati
-            dell'applicazione andranno persi a meno che tu non li abbia esportati.</p>
-
+        <div class="alert alert-danger mt-3" role="alert">
+            <h4 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Attenzione!</h4>
+            <p><strong>L'importazione dei dati sovrascriverà tutti i dati correnti nel browser.</strong> Non c'è un pulsante "annulla". Allo stesso modo, cliccare su <strong>Cancella Tutti i Dati</strong> eliminerà tutto in modo permanente. Usa queste funzioni con cautela.</p>
+        </div>
     </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Ultra Progress Tracker. Tutti i diritti riservati.</span>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

@@ -53,8 +53,7 @@
 
         <div class="accordion" id="mainAccordion">
 
-
-            <!-- 2. Add New Event (Aperto di default) -->
+            <!-- 1. Add New Event (Aperto di default) -->
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingAddEvent">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -66,18 +65,6 @@
                     data-bs-parent="#mainAccordion">
                     <div class="accordion-body">
                         <form id="eventForm">
-                            <div class="row mb-3 align-items-center">
-                                <label for="eventDate" class="col-sm-3 col-md-2 col-form-label">Date & Time</label>
-                                <div class="col-sm-9 col-md-4">
-                                    <input type="datetime-local" class="form-control" id="eventDate" required>
-                                </div>
-                                <label for="eventValue" class="col-sm-3 col-md-2 col-form-label mt-2 mt-md-0">Numeric
-                                    Value</label>
-                                <div class="col-sm-9 col-md-4 mt-2 mt-md-0">
-                                    <input type="number" step="any" class="form-control" id="eventValue"
-                                        placeholder="e.g., 10.5" required>
-                                </div>
-                            </div>
                             <div class="row mb-3 align-items-center">
                                 <label for="eventTypeSelect" class="col-sm-3 col-md-2 col-form-label">Event Type</label>
                                 <div class="col-sm-9 col-md-4">
@@ -93,6 +80,18 @@
                                         <button class="btn btn-outline-secondary" type="button"
                                             id="addNewEventTypeBtn">Add Type</button>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3 align-items-center">
+                                <label for="eventDate" class="col-sm-3 col-md-2 col-form-label">Date & Time</label>
+                                <div class="col-sm-9 col-md-4">
+                                    <input type="datetime-local" class="form-control" id="eventDate" required>
+                                </div>
+                                <label for="eventValue" class="col-sm-3 col-md-2 col-form-label mt-2 mt-md-0">Numeric
+                                    Value</label>
+                                <div class="col-sm-9 col-md-4 mt-2 mt-md-0">
+                                    <input type="number" step="any" class="form-control" id="eventValue"
+                                        placeholder="e.g., 10.5" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -111,7 +110,7 @@
                 </div>
             </div>
 
-            <!-- 1. Activity Trend Chart (Aperto di default) -->
+            <!-- 2. Activity Trend Chart (Aperto di default) -->
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTrendChart">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -122,13 +121,30 @@
                 <div id="collapseTrendChart" class="accordion-collapse collapse show"
                     aria-labelledby="headingTrendChart" data-bs-parent="#mainAccordion">
                     <div class="accordion-body">
-                        <div class="mb-3">
-                            <label for="chartEventTypeFilter" class="form-label">Filter by Event Type:</label>
-                            <select class="form-select" id="chartEventTypeFilter">
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="chartEventTypeFilter" class="form-label me-2 mb-0">Filter by Event Type:</label>
+                            <select class="form-select w-auto" id="chartEventTypeFilter">
                                 <option value="all">Show All</option>
                             </select>
                         </div>
-                        <canvas id="eventsChart"></canvas>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <!-- MODIFICA: Aggiunto un div contenitore con altezza definita -->
+                                <div style="position: relative; height: 350px;">
+                                    <canvas id="eventsChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mt-3 mt-lg-0">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Max Values
+                                    </div>
+                                    <ul class="list-group list-group-flush" id="maxValuesList">
+                                        <li class="list-group-item">No data available.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,13 +160,16 @@
                 <div id="collapseDailyChart" class="accordion-collapse collapse show"
                     aria-labelledby="headingDailyChart" data-bs-parent="#mainAccordion">
                     <div class="accordion-body">
-                        <div class="mb-3">
-                            <label for="dailyChartEventTypeFilter" class="form-label">Filter by Event Type:</label>
-                            <select class="form-select" id="dailyChartEventTypeFilter">
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="dailyChartEventTypeFilter" class="form-label me-2 mb-0">Filter by Event Type:</label>
+                            <select class="form-select w-auto" id="dailyChartEventTypeFilter">
                                 <option value="all">Show All</option>
                             </select>
                         </div>
-                        <canvas id="dailyTotalsChart"></canvas>
+                        <!-- MODIFICA: Aggiunto un div contenitore con altezza definita anche qui -->
+                        <div style="position: relative; height: 400px;">
+                            <canvas id="dailyTotalsChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -192,7 +211,7 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-dark text-white">
         <div class="container text-center">
-            <span>© 2024 Ultra Progress Tracker. All rights reserved.</span>
+            <span>© 2024 Ultra Progress Tracker. Crafted with passion in the quiet of the night.</span>
         </div>
     </footer>
 

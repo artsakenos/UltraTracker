@@ -11,12 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Table
     const recentEventsTableBody = document.getElementById('recentEventsTableBody');
     
-    // Charts
+    // Charts and related elements
     const eventsChartCanvas = document.getElementById('eventsChart');
     const chartEventTypeFilter = document.getElementById('chartEventTypeFilter');
     const dailyTotalsChartCanvas = document.getElementById('dailyTotalsChart');
     const dailyChartEventTypeFilter = document.getElementById('dailyChartEventTypeFilter');
-    
+    const maxValuesList = document.getElementById('maxValuesList'); // NUOVO: Elemento per la lista max values
+
     // Navbar buttons
     const exportDataBtn = document.getElementById('exportDataBtn');
     const importDataInput = document.getElementById('importDataInput');
@@ -134,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderRecentEvents();
         renderChart();
         renderDailyTotalsChart();
+        renderMaxValues(); // NUOVO: Aggiunta chiamata per aggiornare il pannello
     };
     
     const renderRecentEvents = (limit = 10) => {
@@ -161,6 +163,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    /**
+     * NUOVA FUNZIONE: Renderizza la lista dei valori massimi per ogni tipo di evento.
+     */
+    const renderMaxValues = () => {
+        const events = getFromLS(EVENTS_LS_KEY);
+        maxValuesList.innerHTML = '';
+
+        if (events.length === 0) {
+            maxValuesList.innerHTML = '<li class="list-group-item">No data to display.</li>';
+            return;
+        }
+
+        const maxValues = {};
+        events.forEach(event => {
+            if (!maxValues[event.type] || event.value > maxValues[event.type]) {
+                maxValues[event.type] = event.value;
+            }
+        });
+
+        const sortedTypes = Object.keys(maxValues).sort((a, b) => a.localeCompare(b));
+        
+        if (sortedTypes.length === 0) {
+            maxValuesList.innerHTML = '<li class="list-group-item">No data to display.</li>';
+            return;
+        }
+
+        sortedTypes.forEach(type => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = `
+                ${type}
+                <span class="badge bg-primary rounded-pill">${maxValues[type]}</span>
+            `;
+            maxValuesList.appendChild(li);
+        });
+    };
+
     const drawChart = (canvas, chartInstance, datasets, message) => {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
@@ -182,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data: { datasets: datasets },
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false, // Modificato per permettere al CSS di controllare l'altezza
                 scales: {
                     x: {
                         type: 'time',
@@ -249,6 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const message = events.length > 0 ? 'No data for this filter.' : 'No events. Add some!';
+        // Per il grafico dei totali, usiamo l'originale 'drawChart' che ora ha `maintainAspectRatio` a false.
+        // Possiamo ripristinare il comportamento originale se necessario per questo specifico grafico.
+        // Per ora, lasciamo la stessa funzione di disegno.
         dailyTotalsChart = drawChart(dailyTotalsChartCanvas, dailyTotalsChart, datasets, message);
     };
 
