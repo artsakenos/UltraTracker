@@ -1,0 +1,27 @@
+body {
+    font-family: sans-serif;
+    padding-bottom: 60px;
+}
+
+.container {
+    max-width: 960px;
+}
+
+#recentEventsTableBody td,
+#recentEventsTableBody th {
+    vertical-align: middle;
+}
+
+#importDataInput {
+    display: none;
+}
+
+/* Specific style for the add event button if needed to match height */
+#addEventButton {
+    min-height: calc(1.5em * 3 + .75rem * 2 + 2px);
+}
+
+/* Ensure the input group for event type select + delete button has the delete button vertically centered */
+#eventTypeSelect+#deleteSelectedEventTypeBtn {
+    height: calc(1.5em + .75rem + 2px);
+}

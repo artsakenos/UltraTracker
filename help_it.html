@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Tracker Progressi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="analysis.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Progress Tracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Guida all'Uso</h1>
+        <p>Benvenuto nel Progress Tracker!</p>
+
+        <h2>Aggiungere un Evento</h2>
+        <p>Per registrare un nuovo progresso (evento):</p>
+        <ol>
+            <li><strong>Data e Ora:</strong> Verrà automaticamente inserita la data e l'ora correnti. Puoi modificarle
+                se necessario.</li>
+            <li><strong>Tipo Evento:</strong> Seleziona un tipo di evento dalla lista (es. "Flessioni", "Addominali").
+            </li>
+            <li><strong>O crea nuovo tipo:</strong> Se il tipo di evento che desideri non è presente, digitalo nel campo
+                "O crea nuovo tipo" e clicca su "Aggiungi Tipo". Il nuovo tipo sarà disponibile nella lista per
+                selezioni future.</li>
+            <li><strong>Valore Numerico:</strong> Inserisci il valore numerico del tuo progresso (es. numero di
+                flessioni, km percorsi, peso sollevato). Puoi usare numeri decimali.</li>
+            <li><strong>Note:</strong> Aggiungi eventuali dettagli o commenti sull'evento.</li>
+            <li>Clicca su <strong>"Aggiungi Evento"</strong> per salvare.</li>
+        </ol>
+
+        <h2>Dashboard</h2>
+        <ul>
+            <li><strong>Ultimi Eventi Inseriti:</strong> Una tabella mostra gli eventi più recenti che hai registrato.
+                Puoi eliminare un evento cliccando sull'icona del cestino.</li>
+            <li><strong>Grafico Andamento Attività:</strong> Un grafico visualizza l'andamento dei tuoi progressi nel
+                tempo. Puoi filtrare i dati mostrati nel grafico selezionando un tipo di evento specifico dal menu a
+                tendina sopra il grafico.</li>
+        </ul>
+
+        <h2>Gestione Dati</h2>
+        <p>Nella barra di navigazione in alto a destra trovi i pulsanti per:</p>
+        <ul>
+            <li><strong>Esporta Dati:</strong> Scarica tutti i tuoi dati in un file JSON. Conserva questo file per avere
+                un backup o per trasferire i dati.</li>
+            <li><strong>Importa Dati:</strong> Carica un file JSON (precedentemente esportato da questa applicazione)
+                per ripristinare i tuoi dati. <em>Attenzione: l'importazione sovrascriverà i dati attualmente
+                    presenti.</em></li>
+            <li><strong>Cancella Tutti i Dati:</strong> Rimuove permanentemente tutti i dati degli eventi e i tipi di
+                evento personalizzati dal tuo browser. Usa con cautela!</li>
+        </ul>
+
+        <h2>Dati e Privacy</h2>
+        <p>Tutti i dati inseriti in questa applicazione sono salvati <strong>esclusivamente nel local storage del tuo
+                browser</strong>. Ciò significa che i dati rimangono sul tuo computer e non vengono inviati a nessun
+            server esterno. Se cambi browser, usi la navigazione in incognito, o cancelli i dati del browser, i dati
+            dell'applicazione andranno persi a meno che tu non li abbia esportati.</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Progress Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Progress Tracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="help_en.html">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>User Guide</h1>
+        <p>Welcome to the Progress Tracker!</p>
+
+        <h2>Adding an Event</h2>
+        <p>To record a new progress (event):</p>
+        <ol>
+            <li><strong>Date & Time:</strong> The current date and time will be automatically entered. You can modify them if necessary.</li>
+            <li><strong>Event Type:</strong> Select an event type from the list (e.g., "Push-ups", "Sit-ups"). Next to the dropdown, there's a trash icon button to delete the currently selected event type (if not in use).</li>
+            <li><strong>Or create new type:</strong> If the event type you want is not present, type it into the "Or create new type" field and click "Add Type". The new type will then be available in the list for future selections.</li>
+            <li><strong>Numeric Value:</strong> Enter the numerical value of your progress (e.g., number of push-ups, km run, weight lifted). You can use decimal numbers.</li>
+            <li><strong>Notes:</strong> Add any details or comments about the event.</li>
+            <li>Click <strong>"Add Event"</strong> to save.</li>
+        </ol>
+
+        <h2>Dashboard</h2>
+        <ul>
+            <li><strong>Latest Recorded Events:</strong> A table shows the most recent events you have recorded. You can delete an event by clicking the trash icon.</li>
+            <li><strong>Activity Trend Chart:</strong> A graph displays the trend of your progress over time. You can filter the data shown in the chart by selecting a specific event type from the dropdown menu above the chart.</li>
+        </ul>
+
+        <h2>Data Management</h2>
+        <p>In the top-right navigation bar, you will find buttons for:</p>
+        <ul>
+            <li><strong>Export Data:</strong> Download all your data into a JSON file. Keep this file for backup or to transfer data.</li>
+            <li><strong>Import Data:</strong> Upload a JSON file (previously exported from this application) to restore your data. <em>Warning: Importing will overwrite currently present data.</em></li>
+            <li><strong>Clear All Data:</strong> Permanently removes all event data and custom event types from your browser. Use with caution!</li>
+        </ul>
+
+        <h2>Data and Privacy</h2>
+        <p>All data entered into this application is saved <strong>exclusively in your browser's local storage</strong>. This means the data remains on your computer and is not sent to any external server. If you change browsers, use incognito mode, or clear your browser data, the application data will be lost unless you have exported it.</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
